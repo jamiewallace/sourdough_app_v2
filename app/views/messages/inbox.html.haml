@@ -1,0 +1,15 @@
+.box-css
+  .row
+    #inbox-contacts.col-md-3
+      - if @contact_list.present?
+        %h3 Contacts
+        %ul.contacts-list
+          - @contact_list.each do |contact|
+            %li
+              %a.inbox-conversation-link{href: conversation_path(contact.id)}
+                #{contact.username}
+                (<span class='inbox-conversation-counter'>#{current_user.count_new_messages_with(contact)}</span>)
+      - else
+        %h3 No messages yet
+
+    #inbox-message-container.col-md-6

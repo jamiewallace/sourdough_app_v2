@@ -1,0 +1,89 @@
+%head
+  .box-css.col-md-8
+    %h1 #{@user.username}'s profile
+    .box.avatar
+      = image_tag @user.avatar
+    .box.description
+      %h4 
+        Location: 
+        = @user.town_city
+      %h4
+        Country: 
+        = @user.country
+      %br
+      %br
+      = @user.description
+    .box.map
+      #map-canvas
+    .col-md-2
+    %br
+      
+    
+
+    .box-css.col-md-8 
+      -if @user.images.present?
+        %h3 #{@user.username}'s photos
+        #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
+          / Indicators
+          / %ol.carousel-indicators
+          /   %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+          /   %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+          /   %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+          / Wrapper for slides
+          .carousel-inner
+            - @user.images.each do |image|
+              .item{class: ("active" if @user.images.first.id == image.id)}
+                = image_tag image.image_url(:thumb)
+          / Controls
+          %a.left.carousel-control{"data-slide" => "prev", href: "#carousel-example-generic"}
+            %span.glyphicon.glyphicon-chevron-left
+          %a.right.carousel-control{"data-slide" => "next", href: "#carousel-example-generic"}
+            %span.glyphicon.glyphicon-chevron-right
+    
+      = form_for @image do |f| 
+        .field
+
+        -if current_user  
+          %br Upload images of your triumphs (and tragedies)
+          %br
+          = f.file_field :image
+          %br
+          .actions
+          = f.submit 'Save'  
+  
+  .box-css.col-md-4.messaging
+    - if current_user
+      - if current_user.id != @user.id
+        %h3 Message #{@user.username}
+        #message-thread
+          - @message_thread.each do |message|
+            = render message, :locals => {:message => message}
+            
+        %h4 Send a message to #{@user.username}
+        #message-compose
+          = form_for @new_message do |f|
+            = f.hidden_field :recipient_id
+            = f.hidden_field :sender_id
+            .form-group
+              = f.text_area :content, {:class => 'form-control', :rows => 5}
+            = f.submit 'Send', {:class => 'btn btn-primary', :id => "send-message"}
+    - else
+      %h3 
+        = link_to "Sign up" , new_user_registration_path(ref_user_id: @user.id)
+        or
+        = link_to "Sign in" , new_user_session_path(ref_user_id: @user.id)
+        to send a message to
+        = "#{@user.username}"
+        
+  .col-md-4.twitter
+    %a.twitter-timeline{"data-widget-id" => "422083255546806272", :href => "https://twitter.com/search?q=sourdough%20OR%20sourdoughmapper", :height => "400px", "data-chrome" => "transparent nofooter noborders noheader"} Tweets about "sourdough"
+  :javascript
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+ 
+  :javascript
+  $(window).load(function() {
+      $('#slider').nivoSlider();
+  });
+
+  :javascript
+    window.user_location = {lat: #{@user.lat}, lon:#{@user.lon}}
