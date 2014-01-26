@@ -319,9 +319,9 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   }
 
   Carousel.DEFAULTS = {
-    interval: false
-  , pause: 'hover'
-  , wrap: true
+    interval: false,
+    pause: 'hover',
+    wrap: true
   }
 
   Carousel.prototype.cycle =  function (e) {
