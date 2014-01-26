@@ -24,12 +24,6 @@
       -if @user.images.present?
         %h3 #{@user.username}'s photos
         #carousel-example-generic.carousel.slide{"data-ride" => "carousel"}
-          / Indicators
-          / %ol.carousel-indicators
-          /   %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
-          /   %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
-          /   %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
-          / Wrapper for slides
           .carousel-inner
             - @user.images.each do |image|
               .item{class: ("active" if @user.images.first.id == image.id)}
@@ -77,13 +71,9 @@
         
   .col-md-4.twitter
     %a.twitter-timeline{"data-widget-id" => "422083255546806272", :href => "https://twitter.com/search?q=sourdough%20OR%20sourdoughmapper", :height => "400px", "data-chrome" => "transparent nofooter noborders noheader"} Tweets about "sourdough"
+  
   :javascript
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
- 
-  :javascript
-  $(window).load(function() {
-      $('#slider').nivoSlider();
-  });
 
   :javascript
     window.user_location = {lat: #{@user.lat}, lon:#{@user.lon}}
