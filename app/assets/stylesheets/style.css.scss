@@ -3,6 +3,7 @@
 
 .main {
   min-height: 600px;
+  clear: both;
 }
 
 .btn.btn-primary {
@@ -42,10 +43,24 @@ body {
 
 /* navbar */
 
-.navbar-brand {
+nav.all {
+  background-color: rgba(133,105,76, 0.8);
+  border: 0px;
+  overflow: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.top-header {
+  height: 110px;
+}
+
+.logo {
+  float: left;
+  margin: 10px;
   a {
     color: white;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
   }
   a:hover {
@@ -56,81 +71,79 @@ body {
   }
 }
 
-.form-control {
+.leaderboard {
+  float: right;
+  margin: 10px;
+}
+
+.bottom-header {
+  width: 100%;
+  height: 60px;
+}
+
+.form-search {
+  float: left;
+  label {
+    color: white;
+    margin: 0px;
+  }
+}
+
+.search-box {
+  float: left;
+  display: inline;}
+
+input.address {
   width: 270px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 5px;
 }
 
-.radio {
-  color: white;
-
+.radios {
+  display: inline;
+  float: left;
 }
 
-nav.navbar.navbar-default {
-  background-color: rgba(133,105,76, 0.8);
-  border: 0px;
+.search-button {
+ display: inline;
+ float: right;
 }
 
-.nav.navbar-left {
-  li {
-    float: left;
+button {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.sign-up-in {
+  float: right;
+  ul {
+  padding-left: 0px;
+  margin-right: 15px;
+    li {
+    display: inline;
+    list-style-type: none;
+    padding: 5px;
+    }
+  }
+  a {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
   }
   a:hover {
     color: orange;
-    background-color: none;
   }
   a:link {
     text-decoration: none;
   }
 }
 
-.nav.navbar-right {
-  li {
-    float: left;
-  } 
-
-  li > a {
-    color: white;
-    padding: none;
-    background-color: none;
-  }
- 
-  li > a:hover {
-    color: orange;
-    background-color: none;
-  }
- 
-  li > a:link {
-    text-decoration: none;
-    background-color: none;
-  }
-}
-
-.navbar-right > li > a:hover, .navbar-right > li > a:focus {
-  background-color: rgba(133,105,76, 0.1);
-}
-
-.navbar-left > li > a:hover, .navbar-right > li > a:focus {
-  background-color: rgba(133,105,76, 0.1);
-}
-
-.nav.navbar-left {
-  li {
-    float: left;
-  } 
-
-  li > a {
-    color: white;
-    padding: none;
-    background-color: none;
-  }
-}
-
-button.btn.btn-default.nav {
-  width: 60px;
-  text-align: center;
-  padding-left: 6px;
-  padding-right: 6px;
-}
 
 
 /* Footer*/

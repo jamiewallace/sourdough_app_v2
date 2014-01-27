@@ -15,61 +15,78 @@
 
   %body#customisation
     .container
-      %nav.navbar.navbar-default{role: "navigation"}
+      %nav.all
         / overall nav
 
         - if user_signed_in?
           / logged in nav inc search
-          .navbar-header 
-            .navbar-brand
-              =link_to 'Sourdoughmapper', user_path(current_user)
-          .collapse.navbar-collapse
-            %ul.nav.navbar-right
-              %li.text-only
-                %span
-                  %b Hello #{current_user.username}
-              %li
-                %a{href: inbox_path}
-                  %span.global-counter
-                    = pluralize(current_user.messages_received.where(is_read: false).count, "new message")
-
-              %li
-                = link_to 'Edit Profile', edit_user_registration_path
-              
-              %li
-                = link_to 'Sign out', destroy_user_session_path, :method => "delete"
-            %form.navbar-form.navbar-left{role: "search", action:"/users/search", method: "post"}
-              .form-group
-                %input.form-control{placeholder: "Enter location to search for members", type: "text", name: "address"}/
-              .radio
-                %input#optionsRadios2{name: "type", type: "radio", value: "have", checked: true}
+          .top-header
+            .logo
+              =link_to 'Sourdoughmapper', root_path 
+            .leaderboard
+              %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+              / Sourdough leaderboard
+              %ins.adsbygoogle{"data-ad-client" => "ca-pub-8447293650663384", "data-ad-slot" => "7020174900", :style => "display:inline-block;width:728px;height:90px"}
+              :javascript
+                (adsbygoogle = window.adsbygoogle || []).push({});
+          .bottom-header
+            .form-search
+              .search-box
+                %form{role: "search", action:"/users/search", method: "post"}
+                  %input.address{placeholder: "Enter location to search for members", type: "text", name: "address"}/
+              .radios  
+                %input{name: "type", type: "radio", value: "have"}
                 %label
-                  Have
+                  who have
                 %br
-                %input#optionsRadios2{name: "type", type: "radio", value: "need"}
+                %input{name: "type", type: "radio", value: "need"}
                 %label
-                  Need        
-              %button.btn.btn-default.nav{type: "submit"} search
+                  who need
+              .search-button        
+                %button{type: "submit"} search
+            .sign-up-in
+              %ul
+                %li.text-only
+                  %span
+                    %b Hello #{current_user.username}
+                %li
+                  %a{href: inbox_path}
+                    %span.global-counter
+                      = pluralize(current_user.messages_received.where(is_read: false).count, "new message")
+
+                %li
+                  = link_to 'Edit Profile', edit_user_registration_path
+                
+                %li
+                  = link_to 'Sign out', destroy_user_session_path, :method => "delete"
+
         
         
         - else
           / not logged in nav inc search
-          .navbar-header 
-            .navbar-brand
-              =link_to 'Sourdoughmapper', root_path
-          .collapse.navbar-collapse
-            %ul.nav.navbar-right
-              %li
-                - if @user
-                  = link_to "Sign up" , new_user_registration_path(ref_user_id: @user.id)
-                - else
-                  = link_to 'Sign up', new_user_registration_path
-                /|
-              %li
-                - if @user
-                  = link_to "Sign in" , new_user_session_path(ref_user_id: @user.id)
-                - else
-                  = link_to 'Sign in', new_user_session_path
+          .top-header
+            .logo
+              =link_to 'Sourdoughmapper', root_path 
+            .leaderboard
+              %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+              / Sourdough leaderboard
+              %ins.adsbygoogle{"data-ad-client" => "ca-pub-8447293650663384", "data-ad-slot" => "7020174900", :style => "display:inline-block;width:728px;height:90px"}
+              :javascript
+                (adsbygoogle = window.adsbygoogle || []).push({});
+          .bottom-header
+            .sign-up-in
+              %ul
+                %li
+                  - if @user
+                    = link_to "Sign up" , new_user_registration_path(ref_user_id: @user.id)
+                  - else
+                    = link_to 'Sign up', new_user_registration_path
+                  /|
+                %li
+                  - if @user
+                    = link_to "Sign in" , new_user_session_path(ref_user_id: @user.id)
+                  - else
+                    = link_to 'Sign in', new_user_session_path
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
         
