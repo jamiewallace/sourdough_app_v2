@@ -1,5 +1,5 @@
-%head
-  .box-css.col-md-8
+.row
+  .col-md-4
     %h1 #{@user.username}'s profile
     .box.avatar
       = image_tag @user.avatar
@@ -20,9 +20,9 @@
       
     
 
-    .box-css.col-md-8 
+    .col-md-4 
       -if @user.images.present?
-        %h3 #{@user.username}'s photos
+        %h3 My photos
         #carousel-example-generic.carousel.slide{"data-ride" => "carousel", "data-interval" => "false"}
           .carousel-inner
             - @user.images.each do |image|
