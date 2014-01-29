@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
 
   has_many :images
+  has_many :posts
+  has_many :comments
 
   def address
     [first_line_address, second_line_address, town_city, postcode, country].compact.join(', ')
