@@ -1,0 +1,9 @@
+%p
+  %h3 Commenter:
+  = comment.commenter
+%p
+  %h3 Comment:
+  = comment.text
+%p
+  = link_to 'Delete Comment', [comment.post, comment], :method => :delete, :confirm => 'Are you sure?'
+

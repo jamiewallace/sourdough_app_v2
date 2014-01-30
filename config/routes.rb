@@ -42,8 +42,9 @@ SourdoughApp::Application.routes.draw do
 
   resources :images
 
-  resources :posts
-  resources :comments
+  resources :posts do
+    resources :comments
+  end
 
   # get '/images/new', to: 'images#new'
   # post 'images/', to: 'images#create'

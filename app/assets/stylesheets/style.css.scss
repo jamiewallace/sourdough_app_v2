@@ -20,26 +20,18 @@ body {
 
 ///* navbar *///
 
-nav.all {
+
+.col-md-12.navigation {
   background-color: rgba(133,105,76, 0.8);
   border: 0px;
   overflow: auto;
   margin-bottom: 10px;
   border-radius: 5px;
-  margin: 15px -15px 15px -15px;
+  margin: 15px 0px 15px 0px;
   clear: both;
-}
-
-.top-header {
-  height: 110px;
-}
-
-.logo {
-  float: left;
-  margin: 10px;
   a {
     color: white;
-    font-size: 30px;
+    font-size: 15px;
     font-weight: bold;
   }
   a:hover {
@@ -48,6 +40,19 @@ nav.all {
   a:link {
     text-decoration: none;
   }
+  .logo {
+  float: left;
+  margin: 10px;
+  a {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  }
+}
+
+.top-header {
+  height: 110px;
 }
 
 .leaderboard {
@@ -190,7 +195,7 @@ button {
 
 ///* Member profile page *///
 
-.col-md-4 {
+.col-md-4, .col-md-8, .col-md-12 {
   background-color: rgba(232,210,189, 0.9);
   border-radius: 5px;
   a {

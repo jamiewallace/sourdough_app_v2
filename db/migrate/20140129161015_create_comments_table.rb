@@ -3,7 +3,7 @@ class CreateCommentsTable < ActiveRecord::Migration
     create_table :comments
     add_column :comments, :post_id, :integer
     add_column :comments, :text, :text
-    add_column :comments, :user_id, :integer
+    add_column :comments, :commenter, :string
     add_timestamps :comments
   end
 

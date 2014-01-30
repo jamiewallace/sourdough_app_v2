@@ -1,13 +1,20 @@
-%h1 Posts
-  
-- @posts.each do |post|
-  %tr
-    %td= post.title
-    %td= post.text
-    %td= link_to 'Show', post
-    %td= link_to 'Edit', edit_post_path(post)
-    %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.row
+  .col-md-12
+    %h1 Posts
+    %table
+      %tr
+        %th Title
+        %th Text
+        %th
+        %th
+      - @posts.each do |post|
+        %tr
+          %td= post.title
+          %td= post.text
+          %td= link_to 'Show', post
+          %td= link_to 'Edit', edit_post_path(post)
+          %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+    %br
 
-= link_to 'New Post', new_post_path
+    = link_to 'New Post', new_post_path
