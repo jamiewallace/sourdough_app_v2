@@ -21,41 +21,41 @@ body {
 ///* navbar *///
 
 
-.col-md-12.navigation-top {
-    background-color: rgba(133,105,76, 0.8);
-    border: 0px;
-    overflow: auto;
-    border-radius: 5px;
-    margin: 15px 0px 15px 0px;
-    clear: both;
+.col-md-12 {
+  background-color: rgba(133,105,76, 0.8);
+  border: 0px;
+  overflow: auto;
+  border-radius: 5px;
+  clear: both;
+  padding: 0px;
+  margin: 15px 0px 15px 0px;
+  a {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  a:hover {
+    color: orange;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  .logo {
+    float: left;
+    margin: 10px;
     a {
-      color: white;
-      font-size: 15px;
-      font-weight: bold;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
     }
     a:hover {
-      color: orange;
+    color: orange;
     }
     a:link {
-      text-decoration: none;
-    }
-    .logo {
-      float: left;
-      margin: 10px;
-        a {
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        }
-        a:hover {
-        color: orange;
-        }
-        a:link {
-        text-decoration: none;
-        }
+    text-decoration: none;
     }
   }
-
+}
 
 .top-header {
   height: 110px;
@@ -113,9 +113,6 @@ button {
 
 
 .navigation-left {
-  float: left;
-  clear: both;
-  display: inline;
   ul {
   padding-left: 0px;
   margin-right: 15px;
@@ -139,9 +136,7 @@ button {
 }
 
 .navigation-right {
-  display: inline;
   float: right;
-  clear: both;
   ul {
   padding-left: 0px;
   margin-right: 15px;
@@ -192,7 +187,7 @@ button {
 
 
 .col-md-4, .col-md-8, .col-md-12 {
-  padding: 0 0px 0 0px;
+  padding: 0px 0px 0px 0px;
 }
 
 .box {

@@ -16,8 +16,7 @@
   %body#customisation
     .container
       .row
-        .col-md-12.navigation-top
-
+        .col-md-12
           / overall nav
 
           - if user_signed_in?
@@ -110,8 +109,8 @@
             
       = yield
     
-      .row
-        .col-md-12.navigation-top
+      .row.bottom
+        .col-md-12
           .navigation-left
             %ul  
               %li
