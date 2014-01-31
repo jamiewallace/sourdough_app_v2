@@ -1,18 +1,19 @@
 .row
   .col-md-12
-    = link_to 'New Post', new_post_path
-    %h1 Blog
-    - @posts.each do |post|
-      %h2
-        = link_to "#{post.title}", post
-      %br
-      = post.text
-      %br
-      %br
-      = link_to 'Show', post
-      = link_to 'Edit', edit_post_path(post)
-      = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
-      %br
-      %hr
+    .box
+      = link_to 'New Post', new_post_path
+      %h1 Blog
+      - @posts.each do |post|
+        %h2
+          = link_to "#{post.title}", post
+        %br
+        = post.text
+        %br
+        %br
+        = link_to 'Show', post
+        = link_to 'Edit', edit_post_path(post)
+        = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %br
+        %hr
 
 
