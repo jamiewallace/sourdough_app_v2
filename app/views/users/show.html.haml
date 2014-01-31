@@ -1,37 +1,36 @@
 .row
   .col-md-4
-    - if current_user
-      - if current_user.id != @user.id
-        %h3 Message #{@user.username}
-        #message-thread
-          - @message_thread.each do |message|
-            = render message, :locals => {:message => message}
-            
-        %h4 Send a message to #{@user.username}
-        #message-compose
-          = form_for @new_message do |f|
-            = f.hidden_field :recipient_id
-            = f.hidden_field :sender_id
-            .form-group
-              = f.text_area :content, {:class => 'form-control', :rows => 5}
-            = f.submit 'Send', {:class => 'btn btn-primary', :id => "send-message"}
-    - else
-      %h3 
-        = link_to "Sign up" , new_user_registration_path(ref_user_id: @user.id)
-        or
-        = link_to "Sign in" , new_user_session_path(ref_user_id: @user.id)
-        to send a message to
-        = "#{@user.username}"
+    .box
+      - if current_user
+        - if current_user.id != @user.id
+          / %h3 Message #{@user.username}
+          #message-thread
+            - @message_thread.each do |message|
+              = render message, :locals => {:message => message}
+              
+          %h4 Send a message to #{@user.username}
+          #message-compose
+            = form_for @new_message do |f|
+              = f.hidden_field :recipient_id
+              = f.hidden_field :sender_id
+              .form-group
+                = f.text_area :content, {:class => 'form-control', :rows => 5}
+              = f.submit 'Send', {:class => 'btn btn-primary', :id => "send-message"}
+      - else
+        %h3 
+          = link_to "Sign up" , new_user_registration_path(ref_user_id: @user.id)
+          or
+          = link_to "Sign in" , new_user_session_path(ref_user_id: @user.id)
+          to send a message to
+          = "#{@user.username}"
 
-    %hr
-
-
+    .box
       %h1 #{@user.username}'s profile
-      .box.avatar
+      .avatar
         = image_tag @user.avatar
-      .box.map
+      .map
         #map-canvas
-      .box.description
+      .description
         %h4 
           Location: 
           = @user.town_city
@@ -39,9 +38,9 @@
           Country: 
           = @user.country
         = @user.description
-      
-      %br
-      
+    
+
+    
       -if @user.images.present?
         %h3 My photos
         #carousel-example-generic.carousel.slide{"data-ride" => "carousel", "data-interval" => "false"}
@@ -65,37 +64,41 @@
           %br
           .actions
           = f.submit 'Save'  
-  
-  .col-md-4.centre
-    %h2 Latest from the blog...
-    %h3 Blah
-    %p Blah blah blah
-    %h3 Blah
-    %p Blah blah blah
-    %h3 Blah
-    %p Blah blah blah
+    
+  .col-md-4
+    .box.centre
+      = link_to 'New Post', new_post_path
+      %h1 From the Blog
+      - @posts.each do |post|
+        %h2
+          = link_to "#{post.title}", post
+        %br
+        = post.text
+        %br
+        %br
 
-    %hr
+    .box.centre
 
-    %h2 Latest from the forum...
-    %h3 Blah
-    %p Blah blah blah
-    %h3 Blah
-    %p Blah blah blah
-    %h3 Blah
-    %p Blah blah blah
+      %h2 Latest from the forum...
+      %h3 Blah
+      %p Blah blah blah
+      %h3 Blah
+      %p Blah blah blah
+      %h3 Blah
+      %p Blah blah blah
 
 
 
   
   .col-md-4
-    %a.twitter-timeline{"data-widget-id" => "422083255546806272", :href => "https://twitter.com/search?q=sourdough%20OR%20sourdoughmapper", :height => "350px", "data-chrome" => "transparent noborders nofooter"} Tweets about #sourdough
+    .box
+      %a.twitter-timeline{"data-widget-id" => "422083255546806272", :href => "https://twitter.com/search?q=sourdough%20OR%20sourdoughmapper", :height => "350px", "data-chrome" => "transparent noborders nofooter"} Tweets about #sourdough
 
-    %hr
+    .box
 
-    %script{async: "", src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-    / Sourdough MPU
-    %ins.adsbygoogle{"data-ad-client" => "ca-pub-8447293650663384", "data-ad-slot" => "6246288905", style: "display:inline-block;width:336px;height:280px"}
+      %script{async: "", src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+      / Sourdough MPU
+      %ins.adsbygoogle{"data-ad-client" => "ca-pub-8447293650663384", "data-ad-slot" => "6246288905", style: "display:inline-block;width:336px;height:280px"}
     :javascript
       (adsbygoogle = window.adsbygoogle || []).push({});
   

@@ -35,7 +35,8 @@ class UsersController < Devise::RegistrationsController
   end
 
   def show
-    @user = User.find(params[:id]) 
+    @user = User.find(params[:id])
+    @posts = Post.order("created_at DESC").limit(3)
     @image = Image.new
 
     if current_user

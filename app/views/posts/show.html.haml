@@ -1,12 +1,12 @@
 .row
   .col-md-12
-    %h2 Title:
-    = @post.title
-    %h2 Text:
+    %h2
+      = @post.title
     = @post.text
+    %hr
     %h3 Comments
     = render @post.comments
-    %h2 Add a comment:
+    %h3 Add a comment
     = render 'comments/form'
 
     = link_to 'Edit Post', edit_post_path(@post)
@@ -14,3 +14,5 @@
     = link_to 'Back to Posts', posts_path
     |
     =link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure?"
+    %br
+    %br

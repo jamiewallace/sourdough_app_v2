@@ -1,8 +1,7 @@
-%p
-  %h3 Commenter:
+%h4
+  By 
   = comment.commenter
 %p
-  %h3 Comment:
   = comment.text
 %p
   = link_to 'Delete Comment', [comment.post, comment], :method => :delete, :confirm => 'Are you sure?'

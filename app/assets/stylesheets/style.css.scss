@@ -21,35 +21,41 @@ body {
 ///* navbar *///
 
 
-.col-md-12.navigation {
-  background-color: rgba(133,105,76, 0.8);
-  border: 0px;
-  overflow: auto;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  margin: 15px 0px 15px 0px;
-  clear: both;
-  a {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
+.col-md-12.navigation-top {
+    background-color: rgba(133,105,76, 0.8);
+    border: 0px;
+    overflow: auto;
+    border-radius: 5px;
+    margin: 15px 0px 15px 0px;
+    clear: both;
+    a {
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    a:hover {
+      color: orange;
+    }
+    a:link {
+      text-decoration: none;
+    }
+    .logo {
+      float: left;
+      margin: 10px;
+        a {
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        }
+        a:hover {
+        color: orange;
+        }
+        a:link {
+        text-decoration: none;
+        }
+    }
   }
-  a:hover {
-    color: orange;
-  }
-  a:link {
-    text-decoration: none;
-  }
-  .logo {
-  float: left;
-  margin: 10px;
-  a {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-  }
-  }
-}
+
 
 .top-header {
   height: 110px;
@@ -75,7 +81,8 @@ body {
 
 .search-box {
   float: left;
-  display: inline;}
+  display: inline;
+}
 
 input.address {
   width: 270px;
@@ -119,9 +126,9 @@ button {
     }
   }
   a {
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
   }
   a:hover {
     color: orange;
@@ -169,13 +176,6 @@ button {
 
 ///* Footer*///
 
-.navbar-fixed-bottom {
-  margin-bottom: 15px;
-  position: relative;
-  clear: both;
-  border-radius: 5px;
-}
-
 
 ///* Contact form *///
 
@@ -192,10 +192,26 @@ button {
   padding-right: 25px;
 }
 
+///*Blog*///
+
+.col-md-12 {
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  h2 a {
+  color: rgb(133,105,76);
+  }
+  a:hover {
+  color: orange;
+  }
+  a:link {
+  text-decoration: none;
+  }
+}   
 
 ///* Member profile page *///
 
-.col-md-4, .col-md-8, .col-md-12 {
+.col-md-8, .col-md-12 {
   background-color: rgba(232,210,189, 0.9);
   border-radius: 5px;
   a {
@@ -203,17 +219,31 @@ button {
   }
 }
 
-.col-md-4.centre {
+.col-md-4 {
+  padding: 0 0px 0 0px;
+}
+
+.box {
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: rgba(232,210,189, 0.9);
+  border-radius: 5px;
+  a {
+      color: blue;
+  }
+}
+
+.box.centre {
   background-color: rgba(232,210,189, 0.9);
   border-radius: 5px;
   width: 360px;
-  margin: 0px 15px 0px 15px;
+  margin: 0px 15px 15px 15px;
   a {
       color: blue;
   }
 }
 
-.box.avatar {
+.avatar {
   display: inline;
   img {
     height: 150px;
@@ -221,7 +251,7 @@ button {
   }
 }
 
-.box.map {
+.map {
   float: right;
   display: inline;
 }
@@ -232,7 +262,7 @@ button {
   border-radius: 5px;
 }
 
-.box.description {
+.description {
   display: inline;
   font-size: 15px;
 }
@@ -343,6 +373,16 @@ input.home-search-button {
   height: 200px;
   width: 200px;
   padding: 20px;
+  }
+}
+
+.col-md-9 {
+  padding-right: 65px;
+  p.left {
+    float: left;
+  }
+  p.right {
+    float: right;
   }
 }
 
